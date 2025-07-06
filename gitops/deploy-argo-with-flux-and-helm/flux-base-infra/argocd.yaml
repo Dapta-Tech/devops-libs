@@ -113,6 +113,13 @@ spec:
         accounts.developer2.groups: developers
         accounts.operator1.groups: operators
         accounts.readonly1.groups: readonly
+      secret:
+        # Contraseñas bcrypt de los usuarios
+        admin.password: "$2y$05$YOe3xTbMuiFF1a4MNoCbce6JOHU7kRgZ2Pu6lxNKSMGrxamyMbJ.e"
+        developer1.password: "$2y$05$rlIX099Hnj6NTSJK.mcAA.nSwJwDKUilKHeCBzt11uDWGdg3ppDT6"
+        developer2.password: "$2y$05$gwlTVv6cXB5bqhDFkDuQKeA0vxIwyedzYhDBZTOdhkoFtsuB7Fmta"
+        operator1.password: "$2y$05$WRoNrPnB7u6sSSGkJdf4G.t3ciwnfImmq9mxvwaGoLFRgP9x6WFzC"
+        readonly1.password: "$2y$05$OrQbIjLlhQ0EcfNnv9xHROhepdKWgWyCb.S7z7IkldXAXaZTjj6hW"
 
   install:
     createNamespace: true
