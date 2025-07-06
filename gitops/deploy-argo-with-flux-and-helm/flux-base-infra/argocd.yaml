@@ -35,6 +35,14 @@ spec:
   #   global: 
   #     domain: argocd.example.com
 
+  values:
+    configs:
+      cm:
+        accounts.developer1: apiKey,login
+        accounts.developer2: apiKey,login
+        accounts.operator1: apiKey,login
+        accounts.readonly1: apiKey,login
+
   install:
     createNamespace: true
     remediation:
