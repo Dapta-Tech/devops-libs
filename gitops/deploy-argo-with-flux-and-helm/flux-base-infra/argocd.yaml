@@ -51,6 +51,11 @@ spec:
           p, role:admin, certificates, *, *, allow
 
           # Desarrolladores - Acceso global excepto app-root
+          # Denegar acceso específicamente a la app-root primero
+          p, role:developer, applications, get, argocd/apps-config-root, deny
+          p, role:developer, applications, sync, argocd/apps-config-root, deny
+          p, role:developer, applications, list, argocd/apps-config-root, deny
+          # Luego dar permisos generales
           p, role:developer, clusters, get, *, allow
           p, role:developer, projects, get, *, allow
           p, role:developer, applications, get, *, allow
@@ -59,10 +64,6 @@ spec:
           p, role:developer, repositories, get, *, allow
           p, role:developer, logs, get, *, allow
           p, role:developer, exec, create, *, allow
-          # Denegar acceso específicamente a la app-root
-          p, role:developer, applications, get, argocd/apps-config-root, deny
-          p, role:developer, applications, sync, argocd/apps-config-root, deny
-          p, role:developer, applications, list, argocd/apps-config-root, deny
 
           # Operadores - Solo pueden ver y sincronizar, no modificar
           p, role:operator, applications, get, *, allow
