@@ -117,7 +117,7 @@ spec:
         # Contraseñas bcrypt de los usuarios
         admin.password: "$2y$05$YOe3xTbMuiFF1a4MNoCbce6JOHU7kRgZ2Pu6lxNKSMGrxamyMbJ.e"
         developer1.password: "$2y$05$rlIX099Hnj6NTSJK.mcAA.nSwJwDKUilKHeCBzt11uDWGdg3ppDT6"
-        developer2.password: "$2a$10$JD8Bdrw1DcZF0TER5yNBYefcq.pIcwCkKOMj16h.o1rBa1hq4xULi"
+        developer2.password: "$2y$05$Am9wsIP51ePEsd.mBzjGt.D/biMwRlq6DBr7Hm.kN9HEv62VrVAce"
         operator1.password: "$2y$05$WRoNrPnB7u6sSSGkJdf4G.t3ciwnfImmq9mxvwaGoLFRgP9x6WFzC"
         readonly1.password: "$2y$05$OrQbIjLlhQ0EcfNnv9xHROhepdKWgWyCb.S7z7IkldXAXaZTjj6hW"
 
