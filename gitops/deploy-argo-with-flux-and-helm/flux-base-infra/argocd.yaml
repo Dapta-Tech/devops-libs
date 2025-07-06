@@ -44,10 +44,13 @@ spec:
         accounts.readonly1: apiKey,login
         # Configuración de políticas RBAC
         policy.csv: |
-          p, role:developer, applications, *, */*, allow
+          p, role:developer, applications, get, */*, allow
+          p, role:developer, applications, sync, */*, allow
           p, role:developer, projects, get, *, allow
           p, role:developer, repositories, get, *, allow
           p, role:developer, clusters, get, *, allow
+          p, role:developer, logs, get, */*, allow
+          p, role:developer, exec, create, */*, allow
           g, developer1, role:developer
           g, developer2, role:developer
 
