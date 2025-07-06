@@ -46,12 +46,12 @@ spec:
         policy.csv: |
           p, role:developer, clusters, get, *, allow
           p, role:developer, projects, get, *, allow
-          p, role:developer, applications, get, */*, allow
-          p, role:developer, applications, sync, */*, allow
-          p, role:developer, applications, list, */*, allow
+          p, role:developer, applications, get, *, allow
+          p, role:developer, applications, sync, *, allow
+          p, role:developer, applications, list, *, allow
           p, role:developer, repositories, get, *, allow
-          p, role:developer, logs, get, */*, allow
-          p, role:developer, exec, create, */*, allow
+          p, role:developer, logs, get, *, allow
+          p, role:developer, exec, create, *, allow
           # Denegar acceso específicamente a la app-root
           p, role:developer, applications, get, */apps-config-root, deny
           p, role:developer, applications, sync, */apps-config-root, deny
