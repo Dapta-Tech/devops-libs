@@ -50,20 +50,34 @@ spec:
           p, role:admin, gpgkeys, *, *, allow
           p, role:admin, certificates, *, *, allow
 
-          # Desarrolladores - Acceso global excepto app-root
-          # Denegar acceso específicamente a la app-root primero
-          p, role:developer, applications, get, */apps-config-root, deny
-          p, role:developer, applications, sync, */apps-config-root, deny
-          p, role:developer, applications, list, */apps-config-root, deny
-          # Luego dar permisos generales
+          # Desarrolladores - Solo acceso a aplicaciones específicas
           p, role:developer, clusters, get, *, allow
           p, role:developer, projects, get, *, allow
-          p, role:developer, applications, get, *, allow
-          p, role:developer, applications, sync, *, allow
-          p, role:developer, applications, list, *, allow
           p, role:developer, repositories, get, *, allow
           p, role:developer, logs, get, *, allow
           p, role:developer, exec, create, *, allow
+          # Solo aplicaciones específicas
+          p, role:developer, applications, get, argocd/call-rest-api, allow
+          p, role:developer, applications, sync, argocd/call-rest-api, allow
+          p, role:developer, applications, list, argocd/call-rest-api, allow
+          p, role:developer, applications, get, argocd/call-worker-outbound, allow
+          p, role:developer, applications, sync, argocd/call-worker-outbound, allow
+          p, role:developer, applications, list, argocd/call-worker-outbound, allow
+          p, role:developer, applications, get, argocd/db-partitions, allow
+          p, role:developer, applications, sync, argocd/db-partitions, allow
+          p, role:developer, applications, list, argocd/db-partitions, allow
+          p, role:developer, applications, get, argocd/flow-runner-backend, allow
+          p, role:developer, applications, sync, argocd/flow-runner-backend, allow
+          p, role:developer, applications, list, argocd/flow-runner-backend, allow
+          p, role:developer, applications, get, argocd/redis-cache, allow
+          p, role:developer, applications, sync, argocd/redis-cache, allow
+          p, role:developer, applications, list, argocd/redis-cache, allow
+          p, role:developer, applications, get, argocd/redis-queue, allow
+          p, role:developer, applications, sync, argocd/redis-queue, allow
+          p, role:developer, applications, list, argocd/redis-queue, allow
+          p, role:developer, applications, get, argocd/user-service, allow
+          p, role:developer, applications, sync, argocd/user-service, allow
+          p, role:developer, applications, list, argocd/user-service, allow
 
           # Operadores - Solo pueden ver y sincronizar, no modificar
           p, role:operator, applications, get, *, allow
@@ -87,7 +101,7 @@ spec:
           g, operators, role:operator
           g, readonly, role:readonly
         policy.default: role:readonly
-        policy.matchMode: glob
+        policy.matchMode: exact
         scopes: '[groups]'
       cm:
         accounts.developer1: apiKey,login
