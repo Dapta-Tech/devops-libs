@@ -60,7 +60,7 @@ spec:
           p, role:developer, logs, get, *, allow
           p, role:developer, exec, create, *, allow
           # Denegar acceso específicamente a la app-root
-          p, role:developer, applications, *, apps-config-root, deny
+          p, role:developer, applications, *, argocd/apps-config-root, deny
 
           # Operadores - Solo pueden ver y sincronizar, no modificar
           p, role:operator, applications, get, *, allow
