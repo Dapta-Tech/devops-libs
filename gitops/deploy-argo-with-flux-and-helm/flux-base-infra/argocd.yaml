@@ -52,9 +52,9 @@ spec:
 
           # Desarrolladores - Acceso global excepto app-root
           # Denegar acceso específicamente a la app-root primero
-          p, role:developer, applications, get, argocd/apps-config-root, deny
-          p, role:developer, applications, sync, argocd/apps-config-root, deny
-          p, role:developer, applications, list, argocd/apps-config-root, deny
+          p, role:developer, applications, get, */apps-config-root, deny
+          p, role:developer, applications, sync, */apps-config-root, deny
+          p, role:developer, applications, list, */apps-config-root, deny
           # Luego dar permisos generales
           p, role:developer, clusters, get, *, allow
           p, role:developer, projects, get, *, allow
@@ -87,7 +87,7 @@ spec:
           g, operators, role:operator
           g, readonly, role:readonly
         policy.default: role:readonly
-        policy.matchMode: exact
+        policy.matchMode: glob
         scopes: '[groups]'
       cm:
         accounts.developer1: apiKey,login
